@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Card, message } from 'antd';
+import { Form, Input, Button, Card, message, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { authApi } from '../api/auth';
@@ -31,10 +31,36 @@ const Login: React.FC = () => {
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: '100vh',
-            background: '#f0f2f5'
+            background: 'linear-gradient(135deg, #452c63 0%, #6b4288 100%)',
+            backgroundImage: `
+                linear-gradient(135deg, #452c63 0%, #6b4288 100%),
+                url('https://static.vecteezy.com/system/resources/thumbnails/001/741/292/small/blurred-shiny-purple-background-free-photo.jpg')
+            `,
+            backgroundBlendMode: 'overlay',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '150vh',
         }}>
-            <Card style={{ width: 400 }}>
-                <h1 style={{ textAlign: 'center', marginBottom: 24 }}>Iniciar Sesión</h1>
+            <Card
+                style={{
+                    width: 400,
+                    background: 'rgba(181,138,204,0.8)',
+                    borderRadius: '16px',
+                    borderColor: 'white',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                    backdropFilter: 'blur(4px)',
+                }}
+            >
+                <h1 style={{
+                    textAlign: 'center',
+                    marginBottom: 32,
+                    color: '#ffffff',
+                    fontSize: '28px',
+                    fontWeight: 'bold'
+                }}>
+                    Login
+                </h1>
+
                 <Form<LoginCredentials>
                     name="login"
                     onFinish={onFinish}
@@ -48,9 +74,16 @@ const Login: React.FC = () => {
                         ]}
                     >
                         <Input
-                            prefix={<UserOutlined />}
+                            prefix={<UserOutlined style={{ color: 'rgba(255, 255, 255, 0.8)' }}/>}
                             placeholder="Email"
                             size="large"
+                            style={{
+                                background: 'transparent',
+                                border: 'none',
+                                borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+                                borderRadius: 0,
+                                color: '#ffffff',
+                            }}
                         />
                     </Form.Item>
 
@@ -59,11 +92,31 @@ const Login: React.FC = () => {
                         rules={[{ required: true, message: 'Por favor ingresa tu contraseña' }]}
                     >
                         <Input.Password
-                            prefix={<LockOutlined />}
-                            placeholder="Contraseña"
+                            prefix={<LockOutlined style={{ color: 'rgba(255, 255, 255, 0.8)' }}/>}
+                            placeholder="Password"
                             size="large"
+                            style={{
+                                background: 'transparent',
+                                border: 'none',
+                                borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+                                borderRadius: 0,
+                                color: '#ffffff',
+                            }}
                         />
                     </Form.Item>
+
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '20px',
+                        color: '#ffffff'
+                    }}>
+                        <Form.Item name="remember" valuePropName="checked" noStyle>
+                            <Checkbox style={{ color: '#ffffff' }}>Remember Me</Checkbox>
+                        </Form.Item>
+                        <a style={{ color: '#ffffff' }}>Forget Password</a>
+                    </div>
 
                     <Form.Item>
                         <Button
@@ -72,10 +125,21 @@ const Login: React.FC = () => {
                             size="large"
                             block
                             loading={loading}
+                            style={{
+                                marginTop: 24,
+                                height: '45px',
+                                backgroundColor: '#ffffff',
+                                color: '#452c63',
+                                borderRadius: '25px',
+                                border: 'none',
+                                fontWeight: '600',
+                            }}
                         >
-                            Iniciar Sesión
+                            Log in
                         </Button>
                     </Form.Item>
+
+
                 </Form>
             </Card>
         </div>
