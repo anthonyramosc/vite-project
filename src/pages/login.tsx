@@ -34,7 +34,7 @@ const Login: React.FC = () => {
             background: 'linear-gradient(135deg, #452c63 0%, #6b4288 100%)',
             backgroundImage: `
                 linear-gradient(135deg, #452c63 0%, #6b4288 100%),
-                url('https://static.vecteezy.com/system/resources/thumbnails/001/741/292/small/blurred-shiny-purple-background-free-photo.jpg')
+                url('https://p4.wallpaperbetter.com/wallpaper/958/136/1009/valley-mountains-trees-digital-art-artwork-hd-wallpaper-preview.jpg')
             `,
             backgroundBlendMode: 'overlay',
             backgroundSize: 'cover',
